@@ -177,7 +177,7 @@ Return to your `hello.py` script and allow the name to be entered as an argument
 
 <button class="btn btn-warning" data-toggle="collapse" data-target="#challenge1">Solution ...</button>
 <div id="challenge1" class="collapse">
-```python
+<code>
 import sys
 
 def hello(name):
@@ -200,7 +200,7 @@ if __name__ == '__main__':
     else:
         print("No name passed in")
 
-```
+</code>
 </div>
 
 >**WARNING!!**  Allowing information to be passed into your script this way is VERY DANGEROUS.  The `argv` array should never be read directly without checking the validity of the contents first.
