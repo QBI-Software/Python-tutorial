@@ -17,5 +17,5 @@ Setup is the same as the previous lessons but in brief:
 
 ## Lessons
 The lessons can be viewed here:
-1. [Scripting with Spyder](_episodes/1-scripting) ... 60 mins
-2. [Handling Errors](_episodes/2-errors)
+1. [Scripting with Spyder](lessons/1-scripting) ... 60 mins
+2. [Handling Errors](lessons/2-errors) ... 60 mins
