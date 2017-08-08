@@ -1,20 +1,21 @@
 ---
 title: Writing a script
 teaching: 30
-exercises: 0
+exercises: 30
 questions:
 - "How can I write Python programs that will run as scripts?"
 objectives:
+- "Using Spyder to develop Python scripts"
 - "Organizing code within a script"
 - "Allowing flexibility - running with arguments"
-- "Capturing output to a log file"
-- "Cross-platform tips"
+- "Using safe methods for arguments"
 keypoints:
 - "A script is run from top to bottom, with import statements at the top then methods, then instructions"
 - "The `sys` library connects a Python program to the system it is running on."
 - "The list `sys.argv` contains the command-line arguments that a program was run with."
 - "The `arparse` library is the safest way to use command line arguments"
 ---
+# Writing a Script in Python
 So far, we have covered the main programming structures used in Python.  We will now put that together in a script which can be run on demand.
 
 ## Using **Spyder** which is part of the **Anaconda** suite
