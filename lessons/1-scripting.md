@@ -171,11 +171,12 @@ if __name__ == '__main__':
 1. OR you can run directly from the terminal window as `python sysargs.py hello world`
 1. Now run the script and you will see the arguments have been passed into your script.
 
->**WARNING!!**  Allowing information to be passed into your script this way is VERY DANGEROUS.  The `argv` array should never be read directly without checking the validity of the contents first.
 
 #### Challenge
 Return to your `hello.py` script and allow the name to be entered as an argument
 
+<button class="btn btn-warning" data-toggle="collapse" data-target="#challenge1">Solution ...</button>
+<div id="challenge1" class="collapse">
 ```python
 import sys
 
@@ -200,6 +201,9 @@ if __name__ == '__main__':
         print("No name passed in")
 
 ```
+</div>
+
+>**WARNING!!**  Allowing information to be passed into your script this way is VERY DANGEROUS.  The `argv` array should never be read directly without checking the validity of the contents first.
 
 ### ArgParse: Safe use of external arguments
 To help you with checking that nothing malicious is passed into your script, use a library called `argparse`.
@@ -243,4 +247,7 @@ if __name__ == '__main__':
 ```
 
 1. As before, use the **Run** -> **Configure** to add **Command-line options** `--randomname Napoleon`, 'OK'
-1. Now **Run** 
+1. Now **Run**
+
+-----
+We will now move onto the next lesson <a class="btn btn-info" href="2-errors.md">Handling errors</a>
