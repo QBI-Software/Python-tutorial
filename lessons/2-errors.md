@@ -171,7 +171,9 @@ if __name__ == '__main__':
 Take this one step further and put your code into methods.
 
 #### Challenge
-Combine all our csv files into an excel file
+Combine all our csv files into an excel file. - Don't look below before you have a go yourself!
+
+*TIPS: The `glob` library is very good at listing full filepaths and filtering required files*
 
 
 ```python
