@@ -11,7 +11,8 @@ objectives:
 - "Recording errors but continuing the program"
 - "Cross-platform tips with Files"
 keypoints:
-- "A syntax error is often just a typo, but can also be incorrectly named methods or incorrect arguments passed into a method"
+- "A syntax error will prevent the code from running"
+- "Runtime errors occur when the program is running"
 - "File errors are very common but can be managed with some basic checks"
 - "Catching errors can allow them to be noted but the program can still run"
 - "Safely exiting a program if an error is encountered is always the best thing to do"
@@ -44,6 +45,7 @@ if (1 == 1)
 SyntaxError: invalid syntax
 ~~~
 
+Syntax errors will prevent the code from running in the first place.  Errors which only appear when your program is running are known as "Runtime Errors".  We will now see how to deal with this.
 
 ## Catching errors
 Fortunately, we can catch these errors and then do something about them before they abruptly end our program.
@@ -71,7 +73,7 @@ When running in a loop and the error is **major** and you cannot continue withou
 1. only use `exit(0)` if you really want to terminate everything (in Spyder, this also shuts down the python kernel)
 
 ## Reading Files
-So, we will see how to put this in a script which reads the gapminder data as we have done in previous lessons.
+So, we will see how to put this in a script which reads the *gapminder* data as we have done in previous lessons.
 Files can be missing or not accessible so we will include error catching to notify us of these problems.
 
 Previously:
@@ -83,10 +85,13 @@ print(data)
 ```
 
 1. We will change the hard-coded filename to variables
-1. We will also use a library variable called `os.sep` which separates filenames according to operating system so this code can be run on Mac, Unix or Windows
+1. We will also use variable called `sep` from a library called `os` which separates filenames according to operating system so this code can be run on Mac, Unix or Windows
 
 ```python
-filename = datadir + os.sep + fname
+import pandas
+from os import sep
+
+filename = datadir + sep + fname
 data = pandas.read_csv(filename)
 print(data)
 ```
@@ -131,7 +136,9 @@ except OSError as e:
     print("ERROR: Unable to find or access file:", e)
     pass
 ```
+
 ## Making a dynamic script
+
 Finally, we will allow the directory to be loaded from outside the script.
 
 1. Now we will incorporate our **argument parser** from the previous lesson so the directory can be specified when we run the script rather than having to change the code
@@ -144,10 +151,7 @@ from os import sep, listdir
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(prog='Read CSV Files',
-                                       description='''\
-              Reads a directory and extracts first cell from each file
-
-               ''')
+                                  description='''Reads a directory and extracts first cell from each file''')
   parser.add_argument('--filedir', action='store', help='Directory containing files', default="data")
 
   args = parser.parse_args()
@@ -171,9 +175,15 @@ if __name__ == '__main__':
 Take this one step further and put your code into methods.
 
 #### Challenge
-Combine all our csv files into an excel file. - Don't look below before you have a go yourself!
+Combine all our csv files into an excel file.
 
-*TIPS: The `glob` library is very good at listing full filepaths and filtering required files*
+**TIPS**
+1. The `glob` library is very good at filtering files from a directory based on their filenames. For example, selecting all CSV files, or all files with numbers in the filename.
+  + `files = glob.glob('data/*.csv')` - the data directory can be replaced by an argument
+2. Pandas has a method to write to an Excel file called `to_excel` and you will need a special file writer called `ExcelWriter` from the pandas library
+  + `writer = pandas.ExcelWriter(outputfile, engine='xlsxwriter')`  - sets up the file writer
+  + `(fsheet, _) = splitext(basename(f2))` - extract just the filename from the file using `basename()` from `os.path` library
+  + `data.to_excel(writer, sheet_name=fsheet)`  - write the data to the writer with an Excel sheet named as the filename
 
 
 ```python

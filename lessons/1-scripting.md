@@ -248,4 +248,4 @@ if __name__ == '__main__':
 1. Now **Run**
 
 -----
-We will now move onto the next lesson <a class="btn btn-info" href="2-errors.md">Handling errors</a>
+We will now move onto the next lesson <a class="btn btn-info" href="2-errors">Handling errors</a>
