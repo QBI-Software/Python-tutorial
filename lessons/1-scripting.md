@@ -95,7 +95,7 @@ print('pi is', get_pi())
 
 
 ### External
-Before we move on, there is an extra line required when running the script from outside this environment:
+Before we move on, there is an extra line recommended when running the script from outside this environment:
 
 ```python
 if __name__ == '__main__':
@@ -138,7 +138,7 @@ Change the call function to loop over a few names (your first spamming script!).
 
 ### External Arguments
 But these are still variables defined in the script, how do we pass variables in from the command line?
-There is a library called `sys` which allows your script to read from the **system** in which it is running.  Variables passed in are called `arguments` and can be read from an array called `sys.argv`
+There is a library called `sys` which allows your script to read from the **system** in which it is running.  Variables passed in are called `arguments` and are strings which are stored in a list called `sys.argv`
 
 In a new script called *sysargs.py*, type:
 
@@ -178,14 +178,23 @@ Return to your `hello.py` script and allow the name to be entered as an argument
 
 ```python
 import sys
+import re
 
 def hello(name):
   """Print "Hello " and a name and return None"""
   print("Hello", name)
 
 def valid(name):
+    '''Only words with characters, underscores or hyphens are valid'''
     # Provide a validity check to ensure bad stuff is not passed in
-    return (type(randomname) == str)
+    # Introducing a new library called `re`
+    randomname = "bill"
+    match = re.match(r'^[A-Za-z0-9_\-]+$', randomname)
+    if (match):
+        isvalid = True
+    else:
+        isvalid = False
+    return isvalid
 
 
 # main program starts here
@@ -201,7 +210,7 @@ if __name__ == '__main__':
 
 ```
 
->**WARNING!!**  Allowing information to be passed into your script this way is VERY DANGEROUS.  The `argv` array should never be read directly without checking the validity of the contents first.
+>**WARNING!!**  Allowing information to be passed into your script this way can be DANGEROUS.  The `argv` array should never be read directly without checking the validity of the contents first.
 
 ### ArgParse: Safe use of external arguments
 To help you with checking that nothing malicious is passed into your script, use a library called `argparse`.
@@ -217,8 +226,16 @@ def hello(name):
   print("Hello", name)
 
 def valid(name):
+    '''Only words with characters, underscores or hyphens are valid'''
     # Provide a validity check to ensure bad stuff is not passed in
-    return (type(randomname) == str)
+    # Introducing a new library called `re`
+    randomname = "bill"
+    match = re.match(r'^[A-Za-z0-9_\-]+$', randomname)
+    if (match):
+        isvalid = True
+    else:
+        isvalid = False
+    return isvalid
 
 
 # main program starts here
