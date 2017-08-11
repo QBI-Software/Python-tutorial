@@ -70,7 +70,7 @@ When running in a loop and the error is **minor**, such as the first line in a t
 When running in a loop and the error is **major** and you cannot continue without the information:
 1. use `break` and the loop will end
 1. use `pass` and the program will pass to the next instruction
-1. only use `exit(0)` if you really want to terminate everything (in Spyder, this also shuts down the python kernel)
+1. `sys.exit()` `exit()` `quit()` and `os._exit(0)` will kill the Python interpreter so avoid if possible or at least use with caution
 
 ## Reading Files
 So, we will see how to put this in a script which reads the *gapminder* data as we have done in previous lessons.
