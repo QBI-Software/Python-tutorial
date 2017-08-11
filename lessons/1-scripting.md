@@ -188,8 +188,7 @@ def valid(name):
     '''Only words with characters, underscores or hyphens are valid'''
     # Provide a validity check to ensure bad stuff is not passed in
     # Introducing a new library called `re`
-    randomname = "bill"
-    match = re.match(r'^[A-Za-z0-9_\-]+$', randomname)
+    match = re.match(r'^[A-Za-z0-9_\-]+$', name)
     if (match):
         isvalid = True
     else:
@@ -220,6 +219,7 @@ We will update the previous script:
 
 ```python
 import argparse
+import re
 
 def hello(name):
   """Print "Hello " and a name and return None"""
@@ -229,8 +229,7 @@ def valid(name):
     '''Only words with characters, underscores or hyphens are valid'''
     # Provide a validity check to ensure bad stuff is not passed in
     # Introducing a new library called `re`
-    randomname = "bill"
-    match = re.match(r'^[A-Za-z0-9_\-]+$', randomname)
+    match = re.match(r'^[A-Za-z0-9_\-]+$', name)
     if (match):
         isvalid = True
     else:
